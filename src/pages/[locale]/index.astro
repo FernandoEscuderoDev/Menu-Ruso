@@ -1,0 +1,91 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Base from '../../layouts/Base.astro';
+import TopBar from '../../components/TopBar.astro';
+import CatNav from '../../components/CatNav.astro';
+import Hero from '../../components/Hero.astro';
+import Featured from '../../components/Featured.astro';
+import MenuSection from '../../components/MenuSection.astro';
+import Footer from '../../components/Footer.astro';
+import Shape from '../../components/Shape.astro';
+import { LOCALES, t, isLocale } from '../../lib/i18n';
+import { getMenu, getFeatured, getCounts } from '../../lib/menu';
+import type { Locale } from '../../data/categories';
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const raw = Astro.props.locale ?? Astro.params.locale;
+const locale: Locale = isLocale(raw) ? raw : 'es';
+
+const sections = getMenu(locale);
+const featured = getFeatured(locale);
+const { dishes: totalDishes } = getCounts(locale);
+
+const homeFor = Object.fromEntries(
+  LOCALES.map((l) => [l, getRelativeLocaleUrl(l, '/')])
+) as Record<Locale, string>;
+
+const TITLES: Record<Locale, string> = {
+  es: 'Menú · Cuchara del Mundo',
+  en: 'Menu · Cuchara del Mundo',
+  ru: 'Меню · Cuchara del Mundo',
+};
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  es: 'Carta digital de Cuchara del Mundo: cocina rusa, georgiana y de Asia Central. Borsch, shashlik, khinkali, vareniki y cócteles.',
+  en: 'Digital menu for Cuchara del Mundo: Russian, Georgian and Central Asian cuisine. Borscht, shashlik, khinkali, vareniki and cocktails.',
+  ru: 'Цифровое меню Cuchara del Mundo: русская, грузинская кухня и Центральная Азия. Борщ, шашлык, хинкали, вареники и коктейли.',
+};
+
+const marqueeNames = sections
+  .flatMap((s) => s.dishes.slice(0, 2))
+  .map((d) => d.name);
+---
+
+<Base locale={locale} title={TITLES[locale]} description={DESCRIPTIONS[locale]}>
+  <TopBar locale={locale} homeFor={homeFor} />
+  <CatNav locale={locale} sections={sections} />
+
+  <main id="contenido">
+    <Hero locale={locale} marqueeNames={marqueeNames} />
+
+    <Featured
+      locale={locale}
+      dishes={featured}
+      names={sections[0]?.dishes.map((d) => d.name) ?? []}
+    />
+
+    <div id="menu">
+      <div class="section" data-surface="cream" style="padding-block: var(--s-16) 0">
+        <Shape name="blob" shape="blob" variant="d" fill="sand" class="blob blob--tr" />
+        <div class="wrap menuintro">
+          <p class="label menuintro__eyebrow" data-reveal="fade">
+            {t('menu.eyebrow', locale)}
+          </p>
+          <h2 class="display menuintro__title" data-reveal="lines">
+            {t('menu.title', locale)}
+          </h2>
+          <p class="menuintro__body" data-reveal="fade">{t('menu.body', locale)}</p>
+          <p class="label menuintro__stat" data-reveal="fade">
+            {sections.length} · {totalDishes} {t('section.dishes', locale)}
+          </p>
+        </div>
+      </div>
+
+      {
+        sections.map((s, i) => (
+          <MenuSection
+            section={s}
+            locale={locale}
+            prevSurface={i > 0 ? sections[i - 1].category.surface : 'cream'}
+            waveFill={s.category.blob}
+          />
+        ))
+      }
+    </div>
+  </main>
+
+  <Footer locale={locale} />
+</Base>

@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../data/categories';
+import type { Dish } from '../lib/menu';
+
+interface Props {
+  dish: Dish;
+  locale: Locale;
+}
+
+const { dish, locale } = Astro.props;
+
+// El cirílico NO aparece en español ni en inglés: en una carta es ruido
+// tipográfico. Sólo se muestra el nombre original en las versiones que
+// traducen (en / ru), para poder identificar el plato contra la carta física.
+const showEs = locale !== 'es' && dish.name !== dish.nameEs;
+---
+
+<article class="dish" data-dish>
+  {dish.photo && <img class="dish__photo" src={dish.photo} alt={dish.name} loading="lazy" decoding="async" />}
+
+  <div class="dish__head">
+    <h3 class="dish__name">{dish.name}</h3>
+    <span class="dish__leader" aria-hidden="true"></span>
+    <span class="dish__price">{dish.priceLabel}</span>
+  </div>
+
+  {dish.description && <p class="dish__body">{dish.description}</p>}
+
+  {
+    (showEs || dish.prep) && (
+      <div class="dish__meta">
+        {showEs && <span class="tag">{dish.nameEs}</span>}
+        {dish.prep && (
+          <span class="tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+            {dish.prep}
+          </span>
+        )}
+      </div>
+    )
+  }
+</article>

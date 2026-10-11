@@ -1,0 +1,30 @@
+---
+import { t } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+import type { Section } from '../lib/menu';
+
+interface Props {
+  locale: Locale;
+  sections: Section[];
+}
+
+const { locale, sections } = Astro.props;
+---
+
+<nav class="catnav" id="catnav" data-hidden="false" aria-label={t('a11y.categories', locale)}>
+  <div class="catnav__scroll" data-lenis-prevent>
+    {
+      sections.map((s, i) => (
+        <a
+          class="catnav__item"
+          href={`#${s.category.id}`}
+          data-cat={s.category.id}
+          aria-current={i === 0 ? 'true' : undefined}
+        >
+          <span class="catnav__num">{String(i + 1).padStart(2, '0')}</span>
+          <span>{s.category.label[locale]}</span>
+        </a>
+      ))
+    }
+  </div>
+</nav>

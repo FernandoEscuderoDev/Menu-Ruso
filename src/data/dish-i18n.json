@@ -1,0 +1,156 @@
+{
+  "$schema": "./dish-i18n.schema.json",
+  "_nota": "Traducciones EN/RU indexadas por el `slug` de src/data/menu.csv. Si falta una entrada, la web muestra el texto en español (fallback seguro). Edita este archivo o reescribe las claves al agregar productos nuevos.",
+
+  "ensalada-cesar-con-pollo": {
+    "en": { "n": "Caesar salad with chicken", "d": "Mix of green leaves, breaded and golden chicken, Parmesan cheese and croutons, with creamy Caesar dressing. Prep time: ~20 min" },
+    "ru": { "n": "Цезарь с курицей", "d": "Смесь зелёных листьев, панированная золотистая курица, пармезан и крутоны, с нежным соусом «Цезарь». Время приготовления: ~20 мин" }
+  },
+  "ensalada-autoral-langostinos-tropicales": {
+    "en": { "n": "House salad, tropical prawns", "d": "Iceberg lettuce, avocado, prawns and cucumber with mango sauce and yagami in a tropical style. Prep time: ~20 min" },
+    "ru": { "n": "Авторский салат с тропическими креветками", "d": "Листья айсберга, авокадо, креветки и огурец с соусом из манго и ягами в тропическом стиле. Время приготовления: ~20 мин" }
+  },
+  "shakshuka-tradicional": {
+    "en": { "n": "Traditional shakshuka", "d": "A true explosion of Middle Eastern flavours: three eggs cooked in the pan in an intense tomato sauce with peppers, onion and aromatic spices." },
+    "ru": { "n": "Классическая шакшука", "d": "Настоящий взрыв вкусов Ближнего Востока: три яйца, приготовленные на сковороде в насыщенном томатном соусе с перцем, луком и ароматными специями." }
+  },
+  "achichuk": {
+    "en": { "n": "Achichuk", "d": "Traditional Central Asian salad made with juicy tomato, marinated onion and a touch of fresh herbs. Light, fresh and aromatic." },
+    "ru": { "n": "Ачичук", "d": "Традиционный салат Центральной Азии из сочного томата, маринованного лука и свежей зелени. Лёгкий, свежий и ароматный." }
+  },
+  "panqueques-con-jamon-y-queso": {
+    "en": { "n": "Pancakes with ham and cheese", "d": "Soft golden pancakes filled with ham and melted cheese. A simple homemade classic, perfect to enjoy at any time of day. 2 pieces." },
+    "ru": { "n": "Блинчики с ветчиной и сыром", "d": "Мягкие золотистые блинчики с ветчиной и расплавленным сыром. Простой домашний классик, который можно есть в любое время дня. 2 шт." }
+  },
+  "croquetas-de-papa-con-hongos": {
+    "en": { "n": "Potato croquettes with mushrooms", "d": "Soft homemade dough filled with a creamy blend of ricotta, feta-style cheese and a touch of fresh coriander. Boiled and served with sour cream. 2 pieces." },
+    "ru": { "n": "Картофельные крокеты с грибами", "d": "Мягкое домашнее тесто с нежной начинкой из рикотты, сыра фета и свежей кинзы. Отварены, подаются со сметаной. 2 шт." }
+  },
+  "bocados-de-zucchini": {
+    "en": { "n": "Zucchini bites", "d": "Croquettes inspired by Greek cuisine, made with grated zucchini, fresh herbs and cheese, fried until golden and served with yoghurt sauce. 2 pieces." },
+    "ru": { "n": "Крокеты из цуккини", "d": "Крокеты в духе греческой кухни из тёртого цуккини, свежей зелени и сыра, обжаренные до золотистой корочки и поданые с йогуртовым соусом. 2 шт." }
+  },
+  "borsch": {
+    "en": { "n": "Borscht", "d": "Hot and comforting beetroot soup with meat and perfectly cooked vegetables. An Eastern European classic — intense and homemade." },
+    "ru": { "n": "Борщ", "d": "Горячий и уютный свекольный суп с мясом и отварными овощами. Классика Восточной Европы — насыщенный и домашний." }
+  },
+  "solianka-sopa-tradicional": {
+    "en": { "n": "Solyanka, traditional soup", "d": "A hearty Russian classic with assorted meats and cured meats, vinegar-pickled cucumbers, olives, lemon and spices. Salty and tangy, served piping hot with sour cream." },
+    "ru": { "n": "Солянка, традиционный суп", "d": "Наваристый русский суп с несколькими видами мяса и колбас, маринованными огурцами, оливками, лимоном и специями. Солёный и кисловатый, подаётся очень горячим со сметаной." }
+  },
+  "kharcho": {
+    "en": { "n": "Kharcho", "d": "Traditional soup from Georgian cuisine made with beef, rice, aromatic spices and an intense, comforting broth with a slightly spicy kick." },
+    "ru": { "n": "Харчо", "d": "Традиционный суп грузинской кухни из говядины, риса и ароматных специй, с насыщенным согревающим бульоном и лёгкой остротой." }
+  },
+  "sopa-de-arvejas-con-carnes-ahumadas": {
+    "en": { "n": "Pea soup with smoked meats", "d": "Thick and comforting pea soup, slowly cooked with smoked meats that give it an intense, deep flavour." },
+    "ru": { "n": "Суп из гороха с копчёным мясом", "d": "Густой и согревающий гороховый суп, медленно сваренный с копчёным мясом, которое даёт насыщенный глубокий вкус." }
+  },
+  "sopa-de-pescado-con-papas": {
+    "en": { "n": "Fish soup with potatoes", "d": "Soft, fragrant homemade broth prepared with fish, chunks of potato and selected vegetables. Delicate yet deep — light, nutritious and very comforting." },
+    "ru": { "n": "Суп с рыбой и картофелем", "d": "Нежный ароматный домашний бульон с рыбой, кусками картофеля и отборными овощами. Нежный, но насыщенный — лёгкий, питательный и очень согревающий." }
+  },
+  "sopa-de-hongos-con-fideos": {
+    "en": { "n": "Mushroom soup with noodles", "d": "Homemade soup with an intense, aromatic flavour made with mushrooms, noodles and vegetables, slowly cooked to bring out its natural character." },
+    "ru": { "n": "Суп с грибами и лапшой", "d": "Домашний суп с насыщенным ароматом из грибов, лапши и овощей, медленно сваренный, чтобы раскрыть его натуральный вкус." }
+  },
+  "sopa-de-pollo-con-fideos": {
+    "en": { "n": "Chicken soup with noodles", "d": "Traditional homemade soup made with chicken, noodles and vegetables, slowly cooked for a broth full of flavour. Warm, tasty and deeply comforting — just like home." },
+    "ru": { "n": "Куриный суп с лапшой", "d": "Традиционный домашний суп с курицей, лапшой и овощами, медленно сваренный для насыщенного бульона. Тёплый, вкусный и уютный — как дома." }
+  },
+  "shashlik-de-cerdo-marinado-a-la-parrilla": {
+    "en": { "n": "Grilled marinated pork shashlik (1 skewer)", "d": "Fridays and Saturdays only. Pork skewers marinated in spices and herbs, slowly grilled until tender and juicy. Served with homemade satsibeli sauce, marinated onion and fresh tomatoes." },
+    "ru": { "n": "Шашлык из свинины на гриле (1 шт.)", "d": "Только по пятницам и субботам. Шашлык из свинины, маринованный в специях и травах, медленно жаренный на гриле до мягкости и сочности. Подаётся с домашним соусом сацибели, маринованным луком и свежими помидорами." }
+  },
+  "shashlik-de-cerdo-marinado-a-la-parrilla-2": {
+    "en": { "n": "Grilled marinated pork shashlik (2 skewers)", "d": "Fridays and Saturdays only. Pork skewers marinated in spices and herbs, slowly grilled until tender and juicy. Served with homemade satsibeli sauce, marinated onion and fresh tomatoes." },
+    "ru": { "n": "Шашлык из свинины на гриле (2 шт.)", "d": "Только по пятницам и субботам. Шашлык из свинины, маринованный в специях и травах, медленно жаренный на гриле до мягкости и сочности. Подаётся с домашним соусом сацибели, маринованным луком и свежими помидорами." }
+  },
+  "mac-cheese-cremoso": {
+    "en": { "n": "Creamy mac & cheese", "d": "Pasta in a rich, creamy cheddar sauce topped with melted cheese for an extra silky texture full of flavour. American comfort food at its most irresistible. Prep time: ~20 min" },
+    "ru": { "n": "Сливочный мак энд чиз", "d": "Паста в насыщенном сливочном соусе из чеддера под расплавленным сыром — максимально нежная текстура и полный вкус. Американский комфорт-фуд в самом соблазнительном виде. Время приготовления: ~20 мин" }
+  },
+  "vareniki-con-papa-y-hongos": {
+    "en": { "n": "Vareniki with potato and mushrooms", "d": "Soft, tender dumplings similar to ravioli, filled with potato and mushrooms sautéed with onion. A traditional Eastern European dish — 100% vegetable, homemade and comforting, full of natural flavour. 8 pieces." },
+    "ru": { "n": "Вареники с картофелем и грибами", "d": "Мягкие нежные пельмени, похожие на равиоли, с начинкой из картофеля и грибов, обжаренных с луком. Традиционное блюдо Восточной Европы — 100% овощное, домашнее и уютное, полное натурального вкуса. 8 шт." }
+  },
+  "khinkali-empanadillas-georgianas": {
+    "en": { "n": "Khinkali, Georgian dumplings", "d": "Oversized dumplings, a classic of Georgian cuisine, filled with juicy meat and spices. Eaten hot and by hand. 4 pieces. Prep time: ~20 min" },
+    "ru": { "n": "Хинкали, грузинские пельмени", "d": "Крупные пельмени — классика грузинской кухни, с начинкой из сочного мяса и специй. Едят горячими, руками. 4 шт. Время приготовления: ~20 мин" }
+  },
+  "pelmeni": {
+    "en": { "n": "Pelmeni", "d": "Small meat-filled pasta, boiled and very juicy. Served in a generous portion of 20 medium pieces — soft and tasty, perfect to enjoy hot." },
+    "ru": { "n": "Пельмени", "d": "Мелкие пельмени с мясной начинкой, отваренные и очень сочные. Подаётся щедрой порцией из 20 штук — мягкие и вкусные, идеально есть горячими." }
+  },
+  "estofado-de-carne-con-papas-en-crema": {
+    "en": { "n": "Beef stew with potatoes in cream", "d": "Tender pieces of beef slowly cooked with potatoes, onion and spices in a creamy, aromatic sauce. 400 grams." },
+    "ru": { "n": "Говядина с картофелем в сливочном соусе", "d": "Нежные куски говядины, тушёные на медленном огне с картофелем, луком и специями в ароматном сливочном соусе. 400 граммов." }
+  },
+  "pasta-con-pollo-en-salsa-cremosa": {
+    "en": { "n": "Pasta with chicken in cream sauce", "d": "Pasta with tender pieces of chicken in a silky cream sauce perfumed with herbs and a touch of cheese. A comforting, tasty dish full of homemade warmth." },
+    "ru": { "n": "Паста с курицей в сливочном соусе", "d": "Паста с нежными кусочками курицы в нежном сливочном соусе, ароматизированном травами и каплей сыра. Уютное и вкусное блюдо, полное домашнего тепла." }
+  },
+  "pasta-cremosa-con-langostinos": {
+    "en": { "n": "Creamy pasta with prawns", "d": "Pasta with prawns in a delicate creamy sauce, with a house pesto adding aroma and a fresh touch, sprinkled with Parmesan. Prep time: ~20 min" },
+    "ru": { "n": "Паста с креветками в сливочном соусе", "d": "Паста с креветками в деликатном сливочном соусе с авторским песто, который добавляет аромат и свежесть, посыпанная пармезаном. Время приготовления: ~20 мин" }
+  },
+  "moussaka-griega-de-berenjenas": {
+    "en": { "n": "Greek moussaka with aubergine", "d": "Greek classic baked in layers of aubergine, seasoned minced meat, tomato sauce and a creamy béchamel topping. Tasty, warm and comforting — a Mediterranean-style lasagne." },
+    "ru": { "n": "Мусака с баклажанами по-гречески", "d": "Греческий классик: слои баклажана, пряный мясной фарш, томатный соус и нежная бешамель, всё запечённое в духовке. Вкусно, тепло и уютно — средиземноморская лазанья." }
+  },
+  "plov-uzbeko-con-ensalada-achichuk": {
+    "en": { "n": "Uzbek plov with achichuk salad", "d": "Traditional Uzbek rice dish cooked with meat, carrots, onion and warming spices, served with a fresh achichuk salad of tomato, onion and herbs." },
+    "ru": { "n": "Узбекский плов с салатом ачичук", "d": "Традиционное узбекское блюдо из ароматного риса с мясом, морковью, луком и восточными специями, подаётся со свежим салатом ачичук из томата, лука и зелени." }
+  },
+  "syrniki-de-ricotta": {
+    "en": { "n": "Ricotta syrniki", "d": "Sweet ricotta pancakes, fried golden on the griddle and soft inside. Served with condensed milk or sour cream." },
+    "ru": { "n": "Сырники", "d": "Сладкие сырники, обжаренные до золотистой корочки и мягкие внутри. Подаются с сгущённым молоком или сметаной." }
+  },
+  "tarta-de-manzana-con-helado-de-crema": {
+    "en": { "n": "Apple pie with cream ice cream", "d": "Soft golden pastry filled with tender, lightly caramelised apples, served warm with a scoop of creamy vanilla ice cream." },
+    "ru": { "n": "Яблочный пирог со сливочным мороженым", "d": "Мягкое золотистое тесто с начинкой из нежных слегка карамелизированных яблок, подаётся тёплым с шариком сливочного ванильного мороженого." }
+  },
+  "trufa-de-tiramisu": {
+    "en": { "n": "Tiramisu truffle", "d": "A creative take on the classic tiramisu, presented Russian-style as «kartoshka»: individual portions with sponge cake, coffee, cocoa and soft mascarpone cream." },
+    "ru": { "n": "Тирамису-трюфель", "d": "Творческая версия классического тирамису, поданная по-русски как «картошка»: индивидуальные порции с бисквитом, кофе, какао и нежным кремом из маскарпоне." }
+  },
+  "panqueques-al-estilo-ruso": {
+    "en": { "n": "Russian-style pancakes", "d": "Three thin, soft pancakes prepared in the traditional Russian way. Served with dulce de leche or condensed milk." },
+    "ru": { "n": "Блинчики по-русски", "d": "Три тонких мягких блинчика, приготовленных по традиционному русскому рецепту. Подаются с топлёным молоком или сгущёнкой." }
+  },
+  "espresso": { "en": { "n": "Espresso", "d": "" }, "ru": { "n": "Эспрессо", "d": "" } },
+  "latte": { "en": { "n": "Latte", "d": "" }, "ru": { "n": "Латте", "d": "" } },
+  "cafe-con-leche": { "en": { "n": "Coffee with milk", "d": "" }, "ru": { "n": "Кофе с молоком", "d": "" } },
+  "cappuchino": { "en": { "n": "Cappuccino", "d": "" }, "ru": { "n": "Капучино", "d": "" } },
+  "macchiatto": { "en": { "n": "Macchiato", "d": "" }, "ru": { "n": "Макиато", "d": "" } },
+  "maccachino": { "en": { "n": "Maccaccino", "d": "" }, "ru": { "n": "Макачино", "d": "" } },
+  "cafe-alarima": { "en": { "n": "Arabic coffee", "d": "" }, "ru": { "n": "Арабский кофе", "d": "" } },
+  "te": { "en": { "n": "Tea", "d": "" }, "ru": { "n": "Чай", "d": "" } },
+  "cortado": { "en": { "n": "Cortado", "d": "" }, "ru": { "n": "Кортадо", "d": "" } },
+  "lagrima": {
+    "en": { "n": "Lagrima", "d": "Espresso finished with a single drop of milk." },
+    "ru": { "n": "Слёзы", "d": "Эспрессо с каплей молока." }
+  },
+  "coca-sprite-fanta": { "en": { "n": "Coca-Cola, Sprite, Fanta", "d": "" }, "ru": { "n": "Кока-Кола, Спрайт, Фанта", "d": "" } },
+  "agua": { "en": { "n": "Water", "d": "" }, "ru": { "n": "Вода", "d": "" } },
+  "compota": {
+    "en": { "n": "Fruit drink", "d": "Homemade sweet fruit drink." },
+    "ru": { "n": "Компот", "d": "Домашний фруктовый напиток." }
+  },
+  "cerveza-quilmes-imperial": { "en": { "n": "Quilmes / Imperial beer", "d": "" }, "ru": { "n": "Пиво Кильмес / Империал", "d": "" } },
+  "fernet-cola-1882": { "en": { "n": "Fernet & Cola 1882", "d": "" }, "ru": { "n": "Фернет и кола 1882", "d": "" } },
+  "copa-de-vino": { "en": { "n": "Glass of wine", "d": "" }, "ru": { "n": "Бокал вина", "d": "" } },
+  "botella-de-vino": { "en": { "n": "Bottle of wine", "d": "" }, "ru": { "n": "Бутылка вина", "d": "" } },
+  "tequila-sunrise": {
+    "en": { "n": "Tequila Sunrise", "d": "Tequila, orange juice, grenadine." },
+    "ru": { "n": "Текила Санрайз", "d": "Текила, апельсиновый сок, гранатовый сироп." }
+  },
+  "campari-y-jugo": {
+    "en": { "n": "Campari and juice", "d": "" },
+    "ru": { "n": "Кампари и сок", "d": "" }
+  },
+  "fernet-y-coca-cola": {
+    "en": { "n": "Fernet and Coca-Cola", "d": "" },
+    "ru": { "n": "Фернет и Кока-Кола", "d": "" }
+  }
+}

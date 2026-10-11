@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import { HTML_LANG, t } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+
+const fontHref =
+  'https://fonts.googleapis.com/css2' +
+  '?family=Bebas+Neue' +
+  '&family=Caveat:wght@400..700' +
+  '&family=Inter:wght@300..800' +
+  '&display=swap';
+---
+
+<!doctype html>
+<html lang={HTML_LANG[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#fbf9f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#234386" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontHref} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#menu">{t('a11y.skip', locale)}</a>
+    <slot />
+
+    <script>
+      import '../scripts/motion.ts';
+    </script>
+  </body>
+</html>

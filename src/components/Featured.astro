@@ -1,0 +1,61 @@
+---
+import Shape from './Shape.astro';
+import { t } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+import type { Dish } from '../lib/menu';
+
+interface Props {
+  locale: Locale;
+  dishes: Dish[];
+  names: string[];
+}
+
+const { locale, dishes, names } = Astro.props;
+
+// El marquee se duplica para que el bucle de scroll sea continuo.
+const marquee = [...names, ...names];
+---
+
+<section class="featured" id="destacados">
+  <div class="wrap">
+    <header class="featured__head">
+      <p class="label featured__eyebrow">{t('featured.eyebrow', locale)}</p>
+      <h2 class="display featured__title" data-reveal="lines">
+        {t('featured.title', locale)}
+      </h2>
+    </header>
+
+    <div class="fcarousel" data-lenis-prevent data-reveal="stagger" data-fcarousel>
+      {
+        dishes.map((d, i) => (
+          <article class="fcard">
+            <Shape
+              name={['samovar', 'borsch', 'khinkali-empanadillas-georgianas', 'dome', 'plov', 'pelmeni'][i] ?? 'spoon'}
+              class="fcard__art"
+            />
+            <div>
+              <h3 class="fcard__name">{d.name}</h3>
+              {d.description && <p class="fcard__desc">{d.description}</p>}
+            </div>
+            <footer class="fcard__foot">
+              <span class="label fcard__cat">{d.categoryLabel}</span>
+              <span class="fcard__price">{d.priceLabel}</span>
+            </footer>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" data-marquee>
+      {
+        marquee.map((n) => (
+          <span class="marquee__item">
+            {n} <i class="marquee__dot" />
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>

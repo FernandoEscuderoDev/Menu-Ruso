@@ -1,0 +1,45 @@
+---
+import Logo from './Logo.astro';
+import { LOCALE_SHORT, LOCALES, t, HTML_LANG } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+
+interface Props {
+  locale: Locale;
+  /** Ruta del home para el idioma actual, para montar los enlaces del selector. */
+  homeFor: Record<Locale, string>;
+}
+
+const { locale, homeFor } = Astro.props;
+---
+
+<header class="topbar" id="topbar" data-hidden="false">
+  <div class="wrap topbar__inner">
+    <a class="topbar__brand" href={homeFor[locale]}>
+      <Logo class="topbar__mark" title="" />
+      <span class="topbar__name">
+        Cuchara<br /><span>del mundo</span>
+      </span>
+    </a>
+
+    <div class="topbar__right">
+      <nav class="lang" aria-label={t('nav.language', locale)}>
+        {
+          LOCALES.map((l) => (
+            <a
+              class="lang__opt"
+              href={homeFor[l]}
+              hreflang={HTML_LANG[l]}
+              lang={HTML_LANG[l]}
+              aria-current={l === locale ? 'true' : undefined}
+              aria-label={LOCALE_SHORT[l]}
+            >
+              {LOCALE_SHORT[l]}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+  <div class="progress" id="progress" role="progressbar"
+       aria-label={t('a11y.progress', locale)} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+</header>

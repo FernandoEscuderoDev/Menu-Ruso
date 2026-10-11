@@ -1,0 +1,68 @@
+---
+import { ILLUSTRATIONS, BLOBS } from '../lib/illustrations';
+
+interface Props {
+  name: string;
+  class?: string;
+  /** wave | blob | square */
+  shape?: 'wave' | 'blob' | 'square';
+  /** Para shape="blob": a | b | c | d */
+  variant?: string;
+  /** Color sólido del blob. */
+  fill?: 'gold' | 'orange' | 'sage' | 'sand' | 'sky';
+  decorative?: boolean;
+}
+
+const {
+  name,
+  class: className = '',
+  shape = 'square',
+  variant = 'a',
+  fill = 'gold',
+  decorative = true,
+} = Astro.props;
+
+const FILL: Record<string, string> = {
+  gold: 'var(--gold)',
+  orange: 'var(--orange)',
+  sage: 'var(--sage)',
+  sand: 'var(--sand)',
+  sky: 'var(--sky)',
+};
+---
+
+{
+  shape === 'square' ? (
+    <svg
+      class={className}
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+      role={decorative ? 'presentation' : 'img'}
+      aria-hidden={decorative ? 'true' : undefined}
+      aria-label={decorative ? undefined : name}
+      set:html={ILLUSTRATIONS[name] ?? ILLUSTRATIONS.spoon}
+    />
+  ) : shape === 'blob' ? (
+    <svg
+      class={className}
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d={BLOBS[variant] ?? BLOBS.a} fill={FILL[fill]} />
+    </svg>
+  ) : (
+    <svg
+      class={className}
+      viewBox="0 0 800 140"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 62C150 22 250 102 400 62c150-40 250 40 400 0v78H0Z"
+        fill={FILL[fill]}
+      />
+    </svg>
+  )
+}

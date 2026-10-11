@@ -1,0 +1,53 @@
+---
+import Logo from './Logo.astro';
+import Shape from './Shape.astro';
+import { t } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<footer class="footer" id="visitanos">
+  <Shape name="blob" shape="blob" variant="b" fill="gold" class="footer__blob" />
+
+  <div class="wrap">
+    <Logo class="footer__mark" />
+    <h2 class="display footer__title" data-reveal="lines">{t('footer.title', locale)}</h2>
+    <p class="footer__body">{t('footer.body', locale)}</p>
+
+    <div class="footer__grid">
+      <div>
+        <p class="label footer__label">{t('footer.hours', locale)}</p>
+        <p class="footer__value">{t('footer.hoursValue', locale)}</p>
+      </div>
+      <div>
+        <p class="label footer__label">{t('footer.contact', locale)}</p>
+        <p class="footer__value">
+          <a href="tel:+573001234567">+57 300 123 4567</a>
+          <a href="mailto:hola@cucharadelmundo.com">hola@cucharadelmundo.com</a>
+        </p>
+      </div>
+      <div>
+        <p class="label footer__label">{t('nav.menu', locale)}</p>
+        <p class="footer__value">
+          <a href="#menu">{t('menu.eyebrow', locale)}</a>
+          <a href="#destacados">{t('featured.eyebrow', locale)}</a>
+        </p>
+      </div>
+    </div>
+
+    <a class="totop" href="#hero" data-scroll-top>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+      </svg>
+      {t('footer.top', locale)}
+    </a>
+
+    <p class="footer__legal">{t('footer.legal', locale)}</p>
+  </div>
+</footer>

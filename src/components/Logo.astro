@@ -1,0 +1,84 @@
+---
+/**
+ * Logo de Cuchara del Mundo — recreación vectorial.
+ * Sustituye al archivo original si prefieres usar el PNG/SVG del cliente:
+ * pasa `src="/logos/logo.svg"` al componente y se ignorará esta versión.
+ *
+ * Proporciones (viewBox 0 0 256 256):
+ *   anillo   120 / 106
+ *   globo     64
+ *   banda de texto entre 78 y 104  → cabe dentro del anillo sin cortarse
+ */
+interface Props {
+  src?: string;
+  class?: string;
+  title?: string;
+}
+
+const { src, class: className = '', title = 'Cuchara del Mundo' } = Astro.props;
+// Un logo decorativo (junto a un texto visible) no necesita nombre accesible.
+const decorative = !title;
+---
+
+{
+  src ? (
+    decorative ? (
+      <img src={src} alt="" aria-hidden="true" class={className} width="256" height="256" />
+    ) : (
+      <img src={src} alt={title} class={className} width="256" height="256" />
+    )
+  ) : (
+    <svg
+      class={className}
+      viewBox="0 0 256 256"
+      role={decorative ? 'presentation' : 'img'}
+      aria-hidden={decorative ? 'true' : undefined}
+      aria-label={decorative ? undefined : title}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <clipPath id="cm-globe">
+          <circle cx="128" cy="128" r="64" />
+        </clipPath>
+        <path id="cm-arc-top" d="M 50 128 A 78 78 0 0 1 206 128" />
+        <path id="cm-arc-bottom" d="M 48 128 A 80 80 0 0 0 208 128" />
+      </defs>
+
+      {/* Anillo exterior */}
+      <circle cx="128" cy="128" r="120" fill="#16212e" />
+      <circle cx="128" cy="128" r="106" fill="#fbf9f6" />
+
+      {/* Texto circular */}
+      <g
+        fill="#16212e"
+        font-family="Archivo, 'Helvetica Neue', Arial, sans-serif"
+        font-size="26"
+        font-weight="700"
+        letter-spacing="1"
+      >
+        <text><textPath href="#cm-arc-top" startOffset="50%" text-anchor="middle">CUCHARA</textPath></text>
+        <text font-size="24"><textPath href="#cm-arc-bottom" startOffset="50%" text-anchor="middle">DEL MUNDO</textPath></text>
+      </g>
+
+      {/* Globo terráqueo */}
+      <circle cx="128" cy="128" r="64" fill="#16212e" />
+      <g clip-path="url(#cm-globe)" transform="translate(128 128) scale(0.62) translate(-100 -100)" fill="#fbf9f6">
+        <path d="M44 78C46 62 56 50 72 48c12-1 20 4 22 12 2 8-6 14-12 20-6 6-10 14-18 12-8-2-14-4-20-14Z" />
+        <path d="M86 46c6-6 18-6 22 0 2 6-6 12-12 12-6 0-12-6-10-12Z" />
+        <path d="M78 96c8-4 20 0 24 10 2 12-4 26-10 38-4 8-10 6-12-2-2-12-6-26-6-36 0-6 0-8 4-10Z" />
+        <path d="M104 62c4-6 14-8 20-4 6 4 4 12-2 16-6 4-14 2-18-4-3-3-3-5 0-8Z" />
+        <path d="M110 80c8-6 22-4 28 6 5 10 2 26-6 40-5 9-14 10-18 2-5-11-8-28-6-38 0-5 0-8 2-10Z" />
+        <path d="M130 52c12-8 32-6 42 4 6 6 2 16-6 20-10 6-22 8-30 4-6-3-8-10-6-16 0-6-2-9 0-12Z" />
+        <path d="M138 80c6-2 12 2 12 10-1 6-7 10-12 6-3-4-3-12 0-16Z" />
+        <path d="M152 118c10-4 22 0 24 8 1 8-8 14-18 12-8-2-11-16-6-20Z" />
+        <path d="M176 82c3 0 5 3 4 6-1 4-5 6-7 4-3-2-1-10 3-10Z" />
+      </g>
+
+      {/* Cuchara */}
+      <g fill="#f2661f" stroke="#16212e" stroke-width="3" stroke-linejoin="round">
+        <path d="M100 150c9 9 5 28-11 37-16 11-35 4-41-12-6-16 5-35 22-41 13-4 24 6 30 16Z" />
+        <path d="M96 148 L 212 64" fill="none" stroke="#f2661f" stroke-width="16" stroke-linecap="round" />
+      </g>
+    </svg>
+  )
+}

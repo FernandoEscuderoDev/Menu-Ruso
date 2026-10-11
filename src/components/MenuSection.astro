@@ -1,0 +1,66 @@
+---
+import DishCard from './DishCard.astro';
+import Shape from './Shape.astro';
+import { t } from '../lib/i18n';
+import type { Locale, Surface } from '../data/categories';
+import type { Section } from '../lib/menu';
+
+interface Props {
+  section: Section;
+  locale: Locale;
+  /** Superficie de la sección anterior: la onda se apoya sobre ella. */
+  prevSurface?: Surface;
+  waveFill?: 'gold' | 'orange' | 'sage' | 'sand' | 'sky';
+}
+
+const { section, locale, prevSurface = 'cream', waveFill = 'sage' } = Astro.props;
+const { category, index, dishes } = section;
+
+const BG: Record<Surface, string> = {
+  cream: 'var(--cream)',
+  white: 'var(--white)',
+  indigo: 'var(--indigo)',
+  orange: 'var(--orange)',
+};
+---
+
+{
+  index > 0 && (
+    <div style={`background:${BG[prevSurface]}`} aria-hidden="true">
+      <Shape name="wave" shape="wave" fill={waveFill} class="wave" />
+    </div>
+  )
+}
+
+<section
+  class="section"
+  id={category.id}
+  data-surface={category.surface}
+  data-section={category.id}
+  aria-labelledby={`${category.id}-title`}
+>
+  <Shape name={category.art} class="sechead__art" />
+
+  <div class="wrap">
+    <header class="sechead" data-surface={category.surface}>
+      <div class="sechead__top">
+        <span class="label">
+          <span class="sechead__num">{String(index + 1).padStart(2, '0')}</span>
+        </span>
+        <span class="label sechead__count">
+          {dishes.length} {t('section.dishes', locale)}
+        </span>
+      </div>
+      <h2 class="display sechead__title" id={`${category.id}-title`} data-reveal="lines">
+        {category.label[locale]}
+      </h2>
+      <p class="script sechead__kicker" data-reveal="fade">
+        {category.kicker[locale]}
+      </p>
+    </header>
+
+    <div class="dishlist">
+      {dishes.map((dish) => <DishCard dish={dish} locale={locale} />)}
+    </div>
+  </div>
+</section>

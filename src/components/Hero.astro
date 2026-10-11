@@ -1,0 +1,69 @@
+---
+import Shape from './Shape.astro';
+import { t } from '../lib/i18n';
+import type { Locale } from '../data/categories';
+
+interface Props {
+  locale: Locale;
+  marqueeNames: string[];
+}
+
+const { locale, marqueeNames } = Astro.props;
+const items = [...marqueeNames, ...marqueeNames];
+---
+
+<header class="hero" id="hero">
+  <Shape name="blob" shape="blob" variant="a" fill="gold" class="hero__blob hero__blob--gold" />
+  <Shape name="blob" shape="blob" variant="c" fill="sage" class="hero__blob hero__blob--sage" />
+  <Shape name="dome" class="hero__art" />
+
+  <div class="wrap hero__inner">
+    <p class="label hero__eyebrow" data-hero="0">{t('hero.eyebrow', locale)}</p>
+
+    <h1 class="display hero__title">
+      <span data-hero-line>{t('hero.title1', locale)}</span>
+      <span data-hero-line>{t('hero.title2', locale)}</span>
+      <span data-hero-line>{t('hero.title3', locale)}</span>
+    </h1>
+
+    <p class="script hero__script" data-hero="1">{t('hero.script', locale)}</p>
+
+    <p class="hero__body" data-hero="2">{t('hero.body', locale)}</p>
+
+    <div class="hero__actions" data-hero="3">
+      <a class="btn btn--primary" href="#menu">
+        {t('hero.cta', locale)}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M6 13l6 6 6-6" />
+        </svg>
+      </a>
+      <a class="btn btn--outline" href="#visitanos">
+        {t('nav.visit', locale)}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+    <a class="scrollcue" href="#destacados" aria-label={t('hero.scroll', locale)} data-hero="4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 5v14M6 13l6 6 6-6" />
+      </svg>
+    </a>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" data-marquee>
+    {
+      items.map((n) => (
+        <span class="marquee__item">
+          {n} <i class="marquee__dot" />
+        </span>
+      ))
+    }
+  </div>
+</div>
