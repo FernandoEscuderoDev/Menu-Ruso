@@ -1,0 +1,40 @@
+# Configuración de despliegue para Netlify.
+# Con esto no hace falta tocar nada en el panel: build, carpeta de publicación
+# y versión de Node quedan declarados aquí.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # El package.json exige >=22.12; sin esto Netlify puede usar una imagen
+  # con Node antigua y `npm ci` falla antes de compilar.
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# El sitio tiene tres idiomas en /es, /en y /ru. La raíz entra directo a español
+# con 301 en vez de esperar al meta-refresh que genera Astro.
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 301
+
+# Sin extensión y fuera de los idiomas: que caiga en español.
+[[redirects]]
+  from = "/*"
+  to = "/es/:splat"
+  status = 301
+  condition = "!{{request.path.match ^/(es|en|ru|_astro)/}}"
+
+# Los assets de Astro llevan hash en el nombre: se pueden cachear para siempre.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

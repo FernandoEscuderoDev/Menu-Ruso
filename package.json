@@ -14,7 +14,8 @@
     "astro": "astro",
     "sync:menu": "node scripts/sync-menu.mjs",
     "shots": "node scripts/shots.mjs",
-    "audit:text": "node scripts/audit-text.mjs"
+    "audit:text": "node scripts/audit-text.mjs",
+    "serve:dist": "node scripts/serve-dist.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8",

@@ -51,6 +51,23 @@ node scripts/dump-i18n.mjs ru             # vuelca las traducciones para revisar
 se muestra el nombre original en español, y únicamente como etiqueta
 pequeña, para poder identificar el plato contra la carta física.
 
+## Despliegue
+
+`netlify.toml` ya declara el comando de build, la carpeta de publicación (`dist`)
+y la versión de Node. Si conectaste el repo antes de crear ese archivo, Netlify
+puede seguir con la configuración del panel: revisa en **Site configuration →
+Build & deployment** que el comando sea `npm run build` y el directorio de
+publicación `dist`.
+
+El build genera `/es/`, `/en/` y `/ru/`; la raíz redirige con 301 a `/es/`.
+
+Para comprobar la build como Netlify la sirve (archivos estáticos, sin Astro):
+
+```bash
+npm run build
+node scripts/serve-dist.mjs 4399   # http://localhost:4399
+```
+
 ## Antes de publicar
 
 Estos datos son **inventados**, hay que reemplazarlos:
