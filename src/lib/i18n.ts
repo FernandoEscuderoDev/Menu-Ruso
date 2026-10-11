@@ -21,17 +21,27 @@ export const LOCALE_SHORT: Record<Locale, string> = {
 
 /** `lang` del atributo HTML, con región para es/en. */
 export const HTML_LANG: Record<Locale, string> = {
-  es: 'es-CO',
+  es: 'es-AR',
   en: 'en',
   ru: 'ru',
 };
 
-/** Formateo de precios en pesos colombianos. */
+/**
+ * Formateo de precios: pesos argentinos (ARS).
+ *
+ * Los tres idiomas usan el separador argentino (punto para los miles) a
+ * propósito: en una carta es más importante que el número se lea igual en las
+ * tres versiones que que siga la convención del idioma de quien lee. El símbolo
+ * se antepone a mano porque `Intl` en es-AR mete un espacio fino ($ 13.000)
+ * y `currencyDisplay` varía según el navegador.
+ */
 export const INTL_LOCALE: Record<Locale, string> = {
-  es: 'es-CO',
-  en: 'en-CO',
-  ru: 'ru-CO',
+  es: 'es-AR',
+  en: 'es-AR',
+  ru: 'es-AR',
 };
+
+export const CURRENCY = 'ARS';
 
 type Dict = Record<string, Record<Locale, string>>;
 
@@ -102,9 +112,9 @@ export const UI: Dict = {
   'footer.contact': { es: 'Contacto', en: 'Contact', ru: 'Контакты' },
   'footer.top': { es: 'Volver arriba', en: 'Back to top', ru: 'Наверх' },
   'footer.legal': {
-    es: 'Precios en pesos colombianos. Incluye impuestos.',
-    en: 'Prices in Colombian pesos. Taxes included.',
-    ru: 'Цены в колумбийских песо. НДС включён.',
+    es: 'Precios en pesos argentinos (ARS). IVA incluido.',
+    en: 'Prices in Argentine pesos (ARS). VAT included.',
+    ru: 'Цены в аргентинских песо (ARS). НДС включён.',
   },
 
   'a11y.skip': { es: 'Saltar al menú', en: 'Skip to menu', ru: 'Перейти к меню' },

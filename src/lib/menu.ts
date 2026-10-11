@@ -67,9 +67,11 @@ function buildDish(row: Row, locale: Locale, category: Category): Dish {
   const name = entry?.n || nameEs;
 
   const price = parsePrice(row.precio);
-  // Signo + separador de miles del idioma. "Intl currency" en ru-CO rinde
-  // "13 000 COP", que en una carta se lee raro; aquí queda siempre "$13 000".
+  // El símbolo va a mano: `Intl` con estilo currency en es-AR devuelve "$ 13.000"
+  // con un espacio fino que se ve como un error de maquetación en una carta.
+  // Además las tres versiones muestran el número igual (13.000).
   const priceLabel = `$${new Intl.NumberFormat(INTL_LOCALE[locale], {
+    minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(price)}`;
 

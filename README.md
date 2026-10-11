@@ -51,6 +51,20 @@ node scripts/dump-i18n.mjs ru             # vuelca las traducciones para revisar
 se muestra el nombre original en español, y únicamente como etiqueta
 pequeña, para poder identificar el plato contra la carta física.
 
+## Moneda
+
+Pesos argentinos (ARS), separador de miles con punto: `$13.000`.
+
+Los **tres** idiomas usan el formato argentino. Es a propósito: en una carta
+importa que el número se lea igual en las tres versiones, y el symbol del peso
+argentino se presta a confusión con el dólar. El símbolo `$` se antepone a mano
+porque `Intl` con estilo `currency` en `es-AR` devuelve `$ 13.000` con un espacio
+fino que en una carta parece un error de maquetación.
+
+Se cambia en dos sitios de `src/lib/i18n.ts`: `INTL_LOCALE` y `HTML_LANG`
+(`es-AR`). Los **números** vienen del Google Sheet, no del código: si los precios
+de la hoja estaban en otra moneda, hay que corregirlos allá, no acá.
+
 ## Despliegue
 
 `netlify.toml` ya declara el comando de build, la carpeta de publicación (`dist`)
@@ -72,6 +86,9 @@ node scripts/serve-dist.mjs 4399   # http://localhost:4399
 
 Estos datos son **inventados**, hay que reemplazarlos:
 
+- **Los precios**: vienen del Google Sheet. La web los muestra como pesos
+  argentinos, pero los números son los que estén en la hoja — si estaban en
+  otra moneda, corrígelos allá.
 - `src/components/Footer.astro` → teléfono, correo y **horarios**
 - `astro.config.mjs` → `site:` y el dominio de `public/robots.txt`
 - `src/lib/illustrations.ts` → las ilustraciones son recreaciones; cuando
